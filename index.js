@@ -78,8 +78,6 @@ app.get("/asia", function (req, res) {
   res.render("news");
   // { articles: displayArticles });
   // , {articles: articles });
-  //sends back the rendered HTML string to the client
-  //second argument must be an object
   res.end();
 });
 
