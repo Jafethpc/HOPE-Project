@@ -12,18 +12,19 @@
       <h1>App Name</h1>
       <!-- Search Bar in Nav Bar -->
       <!-- Or buttons to search by region/source -->
+    </header>
+
+    <div class="button-container">
       <form>
         <button type="submit" formaction="/americas">Americas</button>
         <button type="submit" formaction="/asia">Asia</button>
         <button type="submit" formaction="/europe">Europe</button>
+        <button type="submit" formaction="/allArticles">All Articles</button>
       </form>
-    </header>
+    </div>
 
-    <h2>ALL ARTICLES HERE</h2>
-    <div class="news-container"></div>
-    <!-- Looping through all articles to display them -->
-    <%# for( var i = 0; i < articles.length; i++) { %>
-    <h2><%# articles.title %></h2>
-    <%# } %>
+    <div class="about">
+      <h2>About Us</h2>
+    </div>
   </body>
 </html>

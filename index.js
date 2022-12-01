@@ -38,7 +38,8 @@ const fetchArticles = async (region, source) => {
   // IF THERE IS ONLY A REGION
   if (region !== "") {
     await fetchArticleAPI(`/regions/${region}`, "");
-    console.log(articles);
+    // console.log(articles);
+    return articles;
     // IF THERE IS ONLY A SOURCE
   } else if (source !== "") {
     await fetchArticleAPI("", `/sources/${source}`);
@@ -52,32 +53,116 @@ const fetchArticles = async (region, source) => {
   }
 };
 
-// fetchArticles("", "");
-
-// ARTICLES DOESN'T EXIST IN THE GLOBAL SCOPE, WHICH MEANS I CAN'T DISPLAY IT
-// console.log(articles);
-
 //Testing Out EJS YARELINE
 
-app.get("/", function (req, res) {
-  // const displayArticles = fetchArticles("europe", "");
-  // console.log(displayArticles);
-  // console.log(articles);
+app.get("/", async (req, res) => {
   res.render("news");
-  // { articles: displayArticles });
-  // , {articles: articles });
   //sends back the rendered HTML string to the client
   //second argument must be an object
   res.end();
 });
 
-app.get("/asia", function (req, res) {
-  const displayArticles = fetchArticles("asia", "");
-  console.log(displayArticles);
-  // console.log(articles);
-  res.render("news");
-  // { articles: displayArticles });
-  // , {articles: articles });
+// REGION ROUTES
+app.get("/americas", async (req, res) => {
+  const displaySources = await fetchArticles("americas", "");
+  // const displayArticles = await fetchArticles("", "");
+  res.render("americas", { sources: displaySources });
+  // res.render("regions", { regions: displayRegions, articles: displayArticles });
+  res.end();
+});
+
+app.get("/asia", async (req, res) => {
+  const displaySources = await fetchArticles("asia", "");
+  res.render("asia", { sources: displaySources });
+  res.end();
+});
+
+app.get("/europe", async (req, res) => {
+  const displaySources = await fetchArticles("europe", "");
+  res.render("europe", { sources: displaySources });
+  res.end();
+});
+
+// AMERICAS ROUTES
+app.get("/cnn", async (req, res) => {
+  const displayArticles = await fetchArticles("", "cnn");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+app.get("/cnbc", async (req, res) => {
+  const displayArticles = await fetchArticles("", "cnbc");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+app.get("/globeMail", async (req, res) => {
+  const displayArticles = await fetchArticles("", "theglobeandmail");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+// ASIA ROUTES
+app.get("/abpNews", async (req, res) => {
+  const displayArticles = await fetchArticles("", "abpnews");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+app.get("/zeeNews", async (req, res) => {
+  const displayArticles = await fetchArticles("", "zeeNews");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+app.get("/economicTimes", async (req, res) => {
+  const displayArticles = await fetchArticles("", "theeconomictimes");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+// EUROPE ROUTES
+app.get("/guardian", async (req, res) => {
+  const displayArticles = await fetchArticles("", "theguardian");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+app.get("/times", async (req, res) => {
+  const displayArticles = await fetchArticles("", "thetimes");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+app.get("/telegraph", async (req, res) => {
+  const displayArticles = await fetchArticles("", "thetelegraph");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+app.get("/skyNews", async (req, res) => {
+  const displayArticles = await fetchArticles("", "skynews");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+app.get("/reuters", async (req, res) => {
+  const displayArticles = await fetchArticles("", "reuters");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+app.get("/economist", async (req, res) => {
+  const displayArticles = await fetchArticles("", "theeconomist");
+  res.render("source", { articles: displayArticles });
+  res.end();
+});
+
+//ALL ARTICLES
+app.get("/allArticles", async (req, res) => {
+  const displayArticles = await fetchArticles("", "");
+  // console.log(displayArticles);
+  res.render("allarticles", { articles: displayArticles });
   res.end();
 });
 

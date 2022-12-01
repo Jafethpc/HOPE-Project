@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Document</title>
+</head>
+<body>
+    <nav><a href="/">HOME</a></nav>
+    <div class="news-container">
+        <!-- Looping through all articles to display them -->
+        <% for( var i = 0; i < articles.length; i++) { %>
+        <div class="news-card">
+            <a href="<%- articles[i].url %>"><img src="<%- articles[i].image %>"></a>
+          <h2><%- articles[i].title %></h2>
+          <p><%- articles[i].source %></p>
+          <p><%- articles[i].region %></p>
+        </div>
+        <% } %>
+</body>
+</html>

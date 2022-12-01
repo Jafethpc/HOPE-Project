@@ -1,5 +1,36 @@
 button {
-  width: 100px;
-  height: 50px;
+  width: 110px;
+  height: 60px;
   background-color: aqua;
+  margin: 0px;
+  padding: 10px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.page-banner p {
+  text-align: center;
+}
+
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 2rem;
+}
+
+.news-card {
+  text-align: center;
+  background-color: antiquewhite;
+  padding: 20px;
+}
+
+.news-container img {
+  width: 20rem;
+  height: 15rem;
 }
