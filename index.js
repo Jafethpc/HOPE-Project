@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const axios = require("axios");
 const bodyParser = require("body-parser");
 const app = express();
 
@@ -13,6 +14,46 @@ app.use(bodyParser.json());
 // VIEW ENGINE
 app.set("view engine", "ejs");
 app.set("views", "views");
+
+const fetchArticles = async (region, source) => {
+  const articles = [];
+  // FETCH ARTICLE API FUNCTION
+  const fetchArticleAPI = async (region, source) => {
+    const options = {
+      method: "GET",
+      url: `https://energy-price-news.p.rapidapi.com/news${region}${source}`,
+      headers: {
+        "X-RapidAPI-Key": "c3cce5dbc7msh1c04466a37c291ep190b64jsn296e149402d3",
+        "X-RapidAPI-Host": "energy-price-news.p.rapidapi.com",
+      },
+    };
+
+    await axios.request(options).then(function (response) {
+      for (const [key, value] of Object.entries(response.data)) {
+        articles.push({ id: key, ...value });
+      }
+    });
+  };
+
+  // IF THERE IS ONLY A REGION
+  if (region !== "") {
+    await fetchArticleAPI(`/regions/${region}`, "");
+    console.log(articles);
+    return articles;
+    // IF THERE IS ONLY A SOURCE
+  } else if (source !== "") {
+    await fetchArticleAPI("", `/sources/${source}`);
+    console.log(articles);
+    return articles;
+    // IF THEY WANT ALL ARTICLES
+  } else {
+    await fetchArticleAPI("", "");
+    console.log(articles);
+    return articles;
+  }
+};
+
+fetchArticles("", "");
 
 // STARTS LISTENING TO SERVER
 app.listen(3000);
