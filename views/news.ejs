@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>News Main Page</title>
+    <title>Price of Energy</title>
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <header>
-      <h1>App Name</h1>
+      <nav>
+        <!-- <p>LOGO</p> -->
+        <a href="/">HOME</a>
+      </nav>
+      <div class="logo-header">
+        <img src="/images/logo.png" />
+      </div>
       <!-- Search Bar in Nav Bar -->
       <!-- Or buttons to search by region/source -->
     </header>
 
-    <div class="button-container">
+    <div id="home-buttons" class="button-container">
       <form>
         <button type="submit" formaction="/americas">Americas</button>
         <button type="submit" formaction="/asia">Asia</button>
@@ -25,27 +31,51 @@
 
     <div class="about">
       <h2>About Us</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas sequi
-        nemo magnam accusantium nam dolor repudiandae eligendi, itaque omnis
-        odit, perspiciatis magni ipsam animi cupiditate aperiam veniam,
-        doloremque tempora et?
-      </p>
+      <div class="about-container">
+        <div class="about-description">
+          <p>
+            We are a news website focused on spreading information on the latest
+            news on energy prices around the globe. Here you will find articles
+            from Asia, Europe and the Americas. <br />
+            <br />
+            Our purpose is to be your go to place to learn the current status of
+            your region in order to minimize surprises and assure that our
+            members are always be prepared and in the know.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="/images/about-image.jpeg" />
+        </div>
+      </div>
     </div>
 
     <div class="sign-up">
-      <h2>Become a member:</h2>
-      <form action="/signup" method="POST">
-        <input type="text" name="name" placeholder="Enter your name:" /> <br />
-        <input type="text" name="email" placeholder="Enter your email:" />
-        <br />
-        <label for="regions">Select a region:</label>
-        <select name="regions">
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option></select
-        ><br />
-      </form>
+      <div class="sign-up-container">
+        <h2>Become a member:</h2>
+        <p>
+          Sign up to our newsleter to never miss an update from your region!
+        </p>
+        <div class="sign-up-form">
+          <form action="/signup" method="POST">
+            <input type="text" name="name" placeholder="Enter your name:" />
+            <br />
+            <input type="text" name="email" placeholder="Enter your email:" />
+            <br />
+            <label for="regions">Select a region:</label>
+            <select name="regions">
+              <option value="Americas">Americas</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option></select
+            ><br />
+            <input class="submit" type="submit" value="Sign-Up!" />
+          </form>
+        </div>
+      </div>
     </div>
+    <footer>
+      <div class="footer-container">
+        <p>Copyright &copy; 2022</p>
+      </div>
+    </footer>
   </body>
 </html>
