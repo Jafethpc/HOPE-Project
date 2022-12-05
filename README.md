@@ -8,13 +8,13 @@ Price of Energy is a news application focusing recolecting articles that touch u
 Clone or download this repo into your local machine. Once you are done install the node packages listed below in the "Built With" section. You can do this by running npm i node on your command line in your terminal.
 
 # Built with
--EJS - view engine used
--Express - framework used to create routes/endpoints
--Node/Nodemon - used to run aplication/server on your browser/localhost
--Path - to work with files and directory paths
--Axios - used to create HTTP requests
--Body Parser - middleware used to parse incoming requests
--MySQL - database used to store member sign-up information
+- EJS - view engine used
+- Express - framework used to create routes/endpoints
+- Node/Nodemon - used to run aplication/server on your browser/localhost
+- Path - to work with files and directory paths
+- Axios - used to create HTTP requests
+- Body Parser - middleware used to parse incoming requests
+- MySQL - database used to store member sign-up information
 
 # Using APIs
 In this project we were tasked to use an API to make our third party API and also display information using that API. These APIs allowed us to see articles and sources of news. This API could be fetched in many ways:
