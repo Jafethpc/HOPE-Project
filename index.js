@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const axios = require("axios");
+const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const app = express();
 
@@ -14,6 +15,19 @@ app.use(bodyParser.json());
 // VIEW ENGINE
 app.set("view engine", "ejs");
 app.set("views", "views");
+
+// MySQL Connection
+const con = mysql.createConnection({
+  host: "127.0.0.1",
+  user: "root",
+  password: "J@feth2003",
+  database: "hope",
+});
+
+con.connect(function (err) {
+  if (err) throw err;
+  console.log("connected!");
+});
 
 const fetchArticles = async (region, source) => {
   const articles = [];
@@ -60,6 +74,23 @@ app.get("/", async (req, res) => {
   //sends back the rendered HTML string to the client
   //second argument must be an object
   res.end();
+});
+
+app.post("/signup", (req, res) => {
+  con.query(
+    "INSERT INTO userData(name, email, region) VALUES('" +
+      req.body.name +
+      "', '" +
+      req.body.email +
+      "', '" +
+      req.body.regions +
+      "')",
+    function (result, err) {
+      if (err) console.log(err);
+      console.log("DATA SENT!");
+    }
+  );
+  res.render("news");
 });
 
 // REGION ROUTES

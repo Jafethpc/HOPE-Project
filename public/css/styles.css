@@ -1,5 +1,13 @@
 * {
   margin: 0px;
+  font-family: "Montserrat";
+}
+
+.sourceOption {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 /* All Pages */
@@ -12,6 +20,7 @@ button {
   border-radius: 15%;
   box-shadow: 5px 10px #2c698d;
   font-size: 15px;
+  cursor: pointer;
 }
 
 button:hover {
@@ -46,6 +55,8 @@ h3 {
 }
 
 nav {
+  display: flex;
+  align-items: flex-start;
   height: 30px;
   padding: 20px;
   background-color: #2c698d;
@@ -202,6 +213,12 @@ nav a:hover {
 
 .news-region {
   font-weight: bold;
+}
+.nameInput,
+.emailInput {
+  padding: 5px;
+  border-radius: 7px;
+  width: 50%;
 }
 
 /* Media Queries */
