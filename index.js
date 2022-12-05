@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-// MySQL Connection
+MySQL Connection
 const con = mysql.createConnection({
   host: "127.0.0.1",
   user: "root",
